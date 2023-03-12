@@ -23,27 +23,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        layout()
+    
+    }
+    
+    private func layout() {
         view.addSubview(gallaryCollectionView)
         view.addSubview(deliveryLabel)
-        
-        deliveryLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
-        deliveryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        deliveryLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
-        
-        
-        
-        gallaryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        gallaryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        gallaryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        gallaryCollectionView.topAnchor.constraint(equalTo: deliveryLabel.bottomAnchor, constant: 10).isActive = true
-        
-        gallaryCollectionView.heightAnchor.constraint(equalToConstant: 350).isActive = true
-        
-        
         gallaryCollectionView.set(cells: SushiModel.fetchSushi())
-
+        
+        NSLayoutConstraint.activate([
+            
+            deliveryLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            deliveryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            deliveryLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            
+            gallaryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gallaryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            gallaryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gallaryCollectionView.topAnchor.constraint(equalTo: deliveryLabel.bottomAnchor, constant: 10),
+            gallaryCollectionView.heightAnchor.constraint(equalToConstant: 350),
+        ])
     }
 
 

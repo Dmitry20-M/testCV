@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GallaryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class GallaryCollectionView: UICollectionView {
 
     var cells = [SushiModel]()
     
@@ -21,9 +21,9 @@ class GallaryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
          backgroundColor = .systemGray6
          delegate = self
          dataSource = self
-         register(GallaryCollectionViewCell.self, forCellWithReuseIdentifier: GallaryCollectionViewCell.reuseId)
+         register(GallaryCollectionViewCell.self, forCellWithReuseIdentifier: GallaryCollectionViewCell.identifier)
          translatesAutoresizingMaskIntoConstraints = false
-         
+
          layout.minimumLineSpacing = Constants.gallaryMinimumSpacing
          contentInset = UIEdgeInsets(top: 0, left: Constants.leftDistanceToView, bottom: 0, right: Constants.rightDistanceToView)
          
@@ -34,15 +34,25 @@ class GallaryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     func set(cells: [SushiModel]) {
         self.cells = cells
     }
-    
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+
+//MARK: - UICollectionViewDataSource
+extension GallaryCollectionView: UICollectionViewDataSource {
+   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return cells.count
-   
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: GallaryCollectionViewCell.reuseId, for: indexPath) as! GallaryCollectionViewCell
+        let cell = dequeueReusableCell(withReuseIdentifier: GallaryCollectionViewCell.identifier, for: indexPath) as! GallaryCollectionViewCell
         
         cell.mainImageView.image = cells[indexPath.row].mainImage
         cell.nameLabel.text = cells[indexPath.row].sushiName
@@ -52,18 +62,27 @@ class GallaryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         return cell
     }
     
+}
+
+
+//MARK: - UICollectionViewDelegateFlowLayout
+extension GallaryCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Constants.gallaryItemWidth, height: frame.height * 0.8) // высота collectionView
     }
     
-    
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

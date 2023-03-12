@@ -8,9 +8,7 @@
 import UIKit
 
 class GallaryCollectionViewCell: UICollectionViewCell {
-    
-    static let reuseId = "GallaryCollectionViewCell"
-    
+        
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
 //        imageView.backgroundColor = .white
@@ -52,44 +50,48 @@ class GallaryCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        backgroundColor = .white// цвет ячейки будет белый
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func layout() {
         addSubview(mainImageView)
         addSubview(nameLabel)
         addSubview(smallDiscription)
         addSubview(likeImageView)
         addSubview(costLabel)
         
-        backgroundColor = .white// цвет ячейки будет белый
-        
-        mainImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        mainImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        mainImageView.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
-        mainImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/3).isActive = true
-        
-        
-        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12).isActive = true
-        
-        
-        smallDiscription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        smallDiscription.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8).isActive = true
-        smallDiscription.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/2, constant: 10).isActive = true
-        
-        
-        likeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        likeImageView.topAnchor.constraint(equalTo: smallDiscription.bottomAnchor, constant: 30).isActive = true
-        likeImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        likeImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        
-        
-        costLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        costLabel.centerYAnchor.constraint(equalTo: likeImageView.centerYAnchor).isActive = true
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        NSLayoutConstraint.activate([
+            
+            mainImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            mainImageView.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            mainImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1/3),
+            
+            
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            nameLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 12),
+            
+            
+            smallDiscription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            smallDiscription.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            smallDiscription.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/2, constant: 10),
+            
+            
+            likeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            likeImageView.topAnchor.constraint(equalTo: smallDiscription.bottomAnchor, constant: 30),
+            likeImageView.widthAnchor.constraint(equalToConstant: 24),
+            likeImageView.heightAnchor.constraint(equalToConstant: 24),
+            
+            
+            costLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            costLabel.centerYAnchor.constraint(equalTo: likeImageView.centerYAnchor),
+        ])
     }
     
 }

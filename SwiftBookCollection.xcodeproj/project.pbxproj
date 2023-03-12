@@ -15,6 +15,7 @@
 		0463FCA129BE0B77003AAD1A /* SushiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463FCA029BE0B77003AAD1A /* SushiModel.swift */; };
 		0463FCA329BE0F8F003AAD1A /* GallaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463FCA229BE0F8F003AAD1A /* GallaryCollectionView.swift */; };
 		0463FCA529BE1333003AAD1A /* GallaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463FCA429BE1333003AAD1A /* GallaryCollectionViewCell.swift */; };
+		0463FCA729BE66CC003AAD1A /* Extention+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463FCA629BE66CC003AAD1A /* Extention+View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0463FCA029BE0B77003AAD1A /* SushiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SushiModel.swift; sourceTree = "<group>"; };
 		0463FCA229BE0F8F003AAD1A /* GallaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryCollectionView.swift; sourceTree = "<group>"; };
 		0463FCA429BE1333003AAD1A /* GallaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		0463FCA629BE66CC003AAD1A /* Extention+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				0463FCA429BE1333003AAD1A /* GallaryCollectionViewCell.swift */,
 				0463FCA229BE0F8F003AAD1A /* GallaryCollectionView.swift */,
 				0463FCA029BE0B77003AAD1A /* SushiModel.swift */,
+				0463FCA629BE66CC003AAD1A /* Extention+View.swift */,
 				0463FC9529BE0962003AAD1A /* Assets.xcassets */,
 				0463FC9729BE0962003AAD1A /* LaunchScreen.storyboard */,
 				0463FC9A29BE0962003AAD1A /* Info.plist */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0463FCA729BE66CC003AAD1A /* Extention+View.swift in Sources */,
 				0463FCA129BE0B77003AAD1A /* SushiModel.swift in Sources */,
 				0463FC9129BE0960003AAD1A /* ViewController.swift in Sources */,
 				0463FC8D29BE0960003AAD1A /* AppDelegate.swift in Sources */,
